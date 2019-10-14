@@ -5,16 +5,16 @@ const StoryList = ({ stories }) => (
         {stories.map(story => (
             <div className="story" key={story.id}>
                 <h2 className="story-title">
-                    <a href={story.url}>{story.title}</a>
+                    <span href={story.url}>{story.title}</span>
                 </h2>
-                <span className="story-details">
-                    {story.points || 0} points
-                </span>
-                <Link href={`/story?id=${story.id}`}>
-                <a>{story.comments_count || 0} comments</a>
-                </Link>
+                <div className="story-details">
+                    <span>{story.points || 0} points</span>
+                    <Link href={`/story?id=${story.id}`}>
+                        <a>{story.comments_count || 0} comments</a>
+                    </Link>
+                </div>
+                
             </div>
-            
         ))}
         <style jsx>{`
             .story-list {
@@ -45,7 +45,7 @@ const StoryList = ({ stories }) => (
             }
             .story-details a {
                 color: #6600ff;
-                text-decoration: none
+                text-decoration: none;
             }
         `}</style>
     </div>
